@@ -1,0 +1,1 @@
+This is a personal project to create a queue system for the popular Python project Youtube-DL. It uses this project and creates a terminal interface around it that allows users with slow-internet connections to queue a list of videos they want to download.

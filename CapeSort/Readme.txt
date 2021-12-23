@@ -1,0 +1,2 @@
+This is the code and results produced from the summer of 2021 researching with a professor attempting to create a new sorting algorithm technique.
+Any code regarding sorting prominent algorithms was gathered from an alternate source, particularly code from sort.h.
