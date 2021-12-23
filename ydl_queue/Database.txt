@@ -1,0 +1,33 @@
+--[SAO_Dubbed]--
+Next=90
+Directory_List=["E:\Libraries\Videos\Videos\Sword Art Online\SAO\Dubbed\Season 1\", "E:\Libraries\Videos\Videos\Sword Art Online\SAO\Dubbed\Season 2\", "E:\Libraries\Videos\Videos\Sword Art Online\SAO\Dubbed\Season 3\Alicization\"]
+Start_List=[26, 79, 155]
+End_List=[50, 103, 178]
+URL='https://vrv.co/series/GR49G9VP6/Sword-Art-Online'
+Download_Options=
+{
+	'format': 'dash-audio-en-US-f2-v1-x3+dash-audio-en-US-f1-a1-x3',
+	'outtmpl': '%(episode_number)02d %(title)s.%(ext)s',
+	'retries': 'float("inf")',
+	'playlist_items': str(nxtEp),
+	'ratelimit': None,
+	'download_archive': 'E:\Libraries\Videos\Videos\Sword Art Online\SAO\Dubbed\Download-Archive.txt'
+}
+--end--
+
+--[My_Hero_Academia-Subbed]--
+Next=97
+Directory_List=["E:\Libraries\Videos\Videos\My Hero Academia"]
+Start_List=[92]
+End_List=[99]
+URL=https://vrv.co/series/G6NQ5DWZ6/My-Hero-Academia
+Download_Options=
+{
+	'format': 'dash-audio-ja-JP-hardsub-en-US-f2-v1-x3+dash-audio-ja-JP-hardsub-en-US-f1-a1-x3',
+	'outtmpl': '%(episode_number)02d %(title)s.mp4',
+	'retries': 'float("inf")',
+	'playlist_items': str(nxtEp),
+	'ratelimit': None,
+	'download_archive': 'E:\Libraries\Videos\Videos\My Hero Academia\Download-Archive.txt'
+}
+--end--
