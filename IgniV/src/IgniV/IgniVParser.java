@@ -1,8 +1,8 @@
 package IgniV;
 
-import java.io.FileInputStream;
+// import java.io.FileInputStream;
+// import java.io.InputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 
@@ -252,8 +252,6 @@ class IgniVParser implements IgniVTokens
      * Parse fun-def
      */
     private ParseTree funDef() {
-        //TODO: Actually implement this thing
-
         mustBe(FUNCTION);
         lexer.next();
 

@@ -15,7 +15,7 @@ if __package__ is None and not hasattr(sys, 'frozen'):
 sys.path.append('E:\Libraries\Desktop\Batch Files\SAO Project Shortcuts\Python Testing')
 import ydl_queue
 
-# I think that this was 'proper coding', but it was making my program unnecessarily loop, so i scrapped it for no
+# I think that this was 'proper coding', but it was making my program unnecessarily loop, so i scrapped it for now
 if __name__ == '__main__':
     ydl_queue.main()
     

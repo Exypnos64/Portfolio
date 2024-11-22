@@ -1,7 +1,5 @@
 package IgniV;
 
-import java.util.ArrayList;
-
 /**
  * A simple object containing a type and value.
  */
@@ -21,16 +19,16 @@ public class EvalResult
     @Override
     public Object clone() {
         if (this.value.getClass() == Integer.class) {
-            return new EvalResult(this.type, new Integer((Integer)this.value));
+            return new EvalResult(this.type, Integer.valueOf((Integer)this.value));
         }
         else if (this.value.getClass() == Double.class) {
-            return new EvalResult(this.type, new Double((Double)this.value));
+            return new EvalResult(this.type, Double.valueOf((Double)this.value));
         }
         else if (this.value.getClass() == Character.class) {
-                return new EvalResult(this.type, new Character((Character)this.value));
+                return new EvalResult(this.type, Character.valueOf((Character)this.value));
         }
         else if (this.value.getClass() == String.class) {
-            return new EvalResult(this.type, new String((String)this.value));
+            return new EvalResult(this.type, String.valueOf((String)this.value));
         }
         else { // is array
             return new EvalResult(this.type, this.value);

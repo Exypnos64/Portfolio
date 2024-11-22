@@ -146,11 +146,12 @@ class IgniVProgram implements ParseTree
         }
 
         
+        @SuppressWarnings("unchecked")
         public void assign(EvalResult value, ParseTree index) {
             // see if the variable exsts
             EvalResult v = scopeSearch(name);
             int i = (int) index.eval().value;
-
+            
             // add the variable to the symbol table if it is new
             if(v == null) {
                 symtab.put(name, value);
@@ -184,6 +185,7 @@ class IgniVProgram implements ParseTree
          * @return The value stored in the variable.
          */
         @Override
+        @SuppressWarnings("unchecked")
         public EvalResult eval() {
             if (index != null) {
                 EvalResult array = scopeSearch(name);
@@ -237,7 +239,7 @@ class IgniVProgram implements ParseTree
                 variable.assign((EvalResult)expr.eval().clone(), index);
             }
             else {
-                variable.assign((EvalResult)expr.eval().clone());
+                variable.assign((EvalResult)expr.eval());
             }
 
             return voidResult;
@@ -384,7 +386,7 @@ class IgniVProgram implements ParseTree
                 double x;
                 double y;
                 if (lhs.type == EvalType.INTEGER) {
-                    Integer i = new Integer((int)lhs.value);
+                    Integer i = Integer.valueOf((int)lhs.value);
                     x = i.doubleValue();
                 }
                 else {
@@ -392,7 +394,7 @@ class IgniVProgram implements ParseTree
                 }
                 
                 if (rhs.type == EvalType.INTEGER) {
-                    Integer i = new Integer((int)rhs.value);
+                    Integer i = Integer.valueOf((int)rhs.value);
                     y = i.doubleValue();
                 }
                 else {
@@ -513,7 +515,7 @@ class IgniVProgram implements ParseTree
                 double x;
                 double y;
                 if (lhs.type == EvalType.INTEGER) {
-                    Integer i = new Integer((int)lhs.value);
+                    Integer i = Integer.valueOf((int)lhs.value);
                     x = i.doubleValue();
                 }
                 else {
@@ -521,7 +523,7 @@ class IgniVProgram implements ParseTree
                 }
                 
                 if (rhs.type == EvalType.INTEGER) {
-                    Integer i = new Integer((int)rhs.value);
+                    Integer i = Integer.valueOf((int)rhs.value);
                     y = i.doubleValue();
                 }
                 else {
@@ -643,7 +645,7 @@ class IgniVProgram implements ParseTree
                 double x;
                 double y;
                 if (lhs.type == EvalType.INTEGER) {
-                    Integer i = new Integer((int)lhs.value);
+                    Integer i = Integer.valueOf((int)lhs.value);
                     x = i.doubleValue();
                 }
                 else {
@@ -651,7 +653,7 @@ class IgniVProgram implements ParseTree
                 }
                 
                 if (rhs.type == EvalType.INTEGER) {
-                    Integer i = new Integer((int)rhs.value);
+                    Integer i = Integer.valueOf((int)rhs.value);
                     y = i.doubleValue();
                 }
                 else {
@@ -771,7 +773,7 @@ class IgniVProgram implements ParseTree
                 double x;
                 double y;
                 if (lhs.type == EvalType.INTEGER) {
-                    Integer i = new Integer((int)lhs.value);
+                    Integer i = Integer.valueOf((int)lhs.value);
                     x = i.doubleValue();
                 }
                 else {
@@ -779,7 +781,7 @@ class IgniVProgram implements ParseTree
                 }
                 
                 if (rhs.type == EvalType.INTEGER) {
-                    Integer i = new Integer((int)rhs.value);
+                    Integer i = Integer.valueOf((int)rhs.value);
                     y = i.doubleValue();
                 }
                 else {
@@ -933,11 +935,12 @@ class IgniVProgram implements ParseTree
          * @return VOID result.
          */
         @Override
+        @SuppressWarnings("unchecked")
         public EvalResult eval() {
             // print the argument list
             for(int i=0; i<args.size(); i++) {
                 if (args.get(i).eval().type == EvalType.ARRAY) {
-                    for (int j = 0; j < ((ArrayList)args.get(i).eval().value).size(); j++) {
+                    for (int j = 0; j < ((ArrayList<ParseTree>)args.get(i).eval().value).size(); j++) {
                         System.out.print(((ArrayList<EvalResult>)args.get(i).eval().value).get(j).value + " ");
                     }
                 }
@@ -1024,6 +1027,8 @@ class IgniVProgram implements ParseTree
                     var.assign(new EvalResult(EvalType.STRING, (String) line));
                 }
             }
+
+            input.close();
             
             return voidResult;
         }

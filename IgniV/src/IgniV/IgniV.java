@@ -7,10 +7,10 @@ import java.io.InputStream;
 public class IgniV
 {
     public static void main(String[] args) throws FileNotFoundException {
-//        InputStream testin = new FileInputStream("quickSort.igv");
-//        
-//        IgniVParser parser = new IgniVParser(new IgniVLexer(testin));
-        IgniVParser parser = new IgniVParser(new IgniVLexer(System.in));
+        InputStream testin = new FileInputStream(args[0]);
+       
+        IgniVParser parser = new IgniVParser(new IgniVLexer(testin));
+        // IgniVParser parser = new IgniVParser(new IgniVLexer(System.in));
         parser.parse().eval();
     }
 }

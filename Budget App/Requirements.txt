@@ -1,0 +1,35 @@
+*** Program Requirements ***
+- track transaction history across multiple bank accounts
+  - purchase location
+  - transaction amount
+  - date (time) of transaction
+  - tags
+  - "envelopes"
+  - user notes
+- manage budgeting via "envelopes"
+  - those who spend with cash can use "envelope budgeting" where they take money from their paycheck and add it to their fund for a specific purpose
+  - users will be able to create "enelopes" or "funds" to budget their spending and saving
+  - they will be able to redirect paychecks and other income to funds and required spending through customizeable means
+    - how often is income? how many jobs do you have?
+	- is this extra income or gift?
+	- how often should money be directed to this envelope?
+	- should the directed funds be calculated flat (rent, insurance, mortgage) or percentage (tithe, savings)
+- input multiple sources of income
+  - should money be budgeted differently for this income (sub-budget) or the same as all other income (master-budget)
+- provide searchable inquiries for all fields of entry and indicated budget
+- provide transaction history import via csv, tsv, xlxs, ods
+  - history should be imported to specific account (bank savings, bank checking, cash, etc)
+- provide optional savings option: add change from transaction to envelope
+  - round up to nearest dollar? 5 dollars? 10 dollars?
+    (is custom rounding feasable or should it just be set amounts)
+  - make setable per budget
+
+
+*** Specification Requirements ***
+- provide simple graphical interface through a web-app
+- store transactions through relational database
+
+
+*** Potential Future additions ***
+- grab transactions from bank directly
+  - prompt user for name change, date, tags, etc

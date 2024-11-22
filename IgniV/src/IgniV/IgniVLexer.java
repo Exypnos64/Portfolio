@@ -1,5 +1,5 @@
 package IgniV;
-import java.io.FileInputStream;
+// import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.IOException;
@@ -521,9 +521,8 @@ public class IgniVLexer implements IgniVTokens
      * the lexeme string and the eof field as well.
      */
     private void consume() {
-        int c;    // The character we are going to read
 
-        //never try to read an ended stream
+        // never try to read an ended stream
         if(eof) {
             return;
         }

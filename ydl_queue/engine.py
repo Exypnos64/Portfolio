@@ -7,9 +7,14 @@ import youtube_dl, os, os.path, fileinput
 from menu import *
 
 
-class engine:
-    # Set variables for chosen downloads and fix if needed
+class Engine:
+    def __init__(self):
+        pass
+
     def readData(self, titleIn):
+        '''
+        Set variables for chosen downloads and fix if needed
+        '''
         global inFile, title
         title = titleIn
         inFile = open(os.path.dirname(os.path.realpath(__file__))+'\Database.txt')
@@ -51,8 +56,10 @@ class engine:
         self.epCnt()
 
 
-    # Sub-routine for readData() that sets variables
     def defVars(self, option):
+        '''
+        Sub-routine for readData() that sets variables
+        '''
         if 'Directory_List' in option:
 ##            print('Found directories')
             global dirList
@@ -93,8 +100,10 @@ class engine:
             print('Unknown option found')
         
 
-    # Counts files in specified directory
     def epCnt(self):
+        '''
+        Counts files in specified directory
+        '''
         print('Counting files...')
         global playNum, epNum
         epNum = len([name for name in os.listdir(fileLocation) if os.path.isfile(os.path.join(fileLocation, name)) and not 'fdash' in name])
@@ -102,8 +111,10 @@ class engine:
         self.epMch(finish)
         
 
-    # Checks if selected video completed download
     def epMch(self, finish):
+        '''
+        Checks if selected video completed download
+        '''
         if playNum == finish:
             print('Section {section} Match: Video {epNum} download complete'.format(**globals()))
             self.updtTxt()
@@ -116,8 +127,10 @@ class engine:
         else:
             self.epCall()
 
-    # Updates 'Next' option in database for selected playlist
     def updtTxt(self):
+        '''
+        Updates 'Next' option in database for selected playlist
+        '''
         # Locates Database.txt next to this file
         filename = os.path.dirname(os.path.realpath(__file__))+'\Database.txt'
 
@@ -142,8 +155,10 @@ class engine:
             file.close()
                 
 
-    # Informs user of the episode number being obtained
     def epCall(self):
+        '''
+        Informs user of the episode number being obtained
+        '''
         global epNum, section
         for i in endList:
             if nxtEp <= i:
@@ -157,8 +172,10 @@ class engine:
         exit()
 
 
-    # Downloads video using Youtube-DL with specified URL and options
     def dlEngine(self):
+        '''
+        Downloads video using Youtube-DL with specified URL and options
+        '''
         global url
         for i in endList:
             if nxtEp <= i:

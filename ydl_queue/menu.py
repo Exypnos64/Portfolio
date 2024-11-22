@@ -57,7 +57,7 @@ class options:
     @staticmethod
     def opt2():
         title = input("List the title of your series: ")
-        eMain = engine()
+        eMain = Engine()
         if eMain.readData(title) == 1:
             menu()
     @staticmethod
